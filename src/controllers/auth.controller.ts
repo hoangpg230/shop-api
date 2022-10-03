@@ -2,8 +2,9 @@ import { NextFunction, Request, Response } from "express";
 import createError from "http-errors";
 
 import { IUser } from "../dto/user.dto";
+import Banner from "../models/banner.model";
 import User from "../models/user.model";
-import { signAccessToken } from "../untils/jwt";
+import { signAccessToken, signRefreshToken } from "../untils/jwt";
 import authValidation from "../validations/auth.validation";
 
 const login = async (req: Request, res: Response, next: NextFunction) => {
@@ -20,10 +21,11 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
     const accessToken = await signAccessToken(user.id);
     const infoUser = user.toObject();
     delete infoUser.password;
-
+    const refreshToken = await signRefreshToken(user.id);
     res.send({
       accessToken,
       user: infoUser,
+      refreshToken,
     });
   } catch (error: any) {
     if (error.isJoi === true)

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const defaultConnectString = "mongodb://localhost:27017";
+const defaultConnectString = "mongodb://localhost:27017/test";
 
 mongoose
   .connect(process.env.MONGODB_URI || defaultConnectString, {

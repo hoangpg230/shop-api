@@ -13,6 +13,8 @@ import routes from "./routes";
 
 //@ts-ignore
 import xss from "xss-clean";
+import Banner from "./models/banner.model";
+import mongoose from "mongoose";
 
 dotenv.config();
 
