@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "concurrently --kill-others \"npx tsc --watch\" \"nodemon src/index.ts\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/index.js\""
   },
   "keywords": [],
   "author": "",
