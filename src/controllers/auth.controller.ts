@@ -2,9 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import createError from "http-errors";
 
 import { IUser } from "../dto/user.dto";
-import Banner from "../models/banner.model";
 import User from "../models/user.model";
-import { signAccessToken, signRefreshToken } from "../untils/jwt";
+import { signAccessToken, signRefreshToken } from "../utils/jwt";
 import authValidation from "../validations/auth.validation";
 
 const login = async (req: Request, res: Response, next: NextFunction) => {

@@ -1,1 +1,1 @@
-export { verifyAccessToken } from "../untils/jwt";
+export { verifyAccessToken } from "../utils/jwt";
